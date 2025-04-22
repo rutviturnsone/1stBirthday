@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rutvi’s Magical 1st Birthday</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      background: linear-gradient(120deg, #ffe0f0, #d0f0ff);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    nav {
+      background-color: #ff89bb;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section { padding: 4rem 2rem; text-align: center; position: relative; }
+    .section-title { font-size: 2rem; margin-bottom: 1.5rem; color: #ff3f7a; }
+
+    #home {
+      background: url('11.jpg') center top no-repeat;
+      background-size: contain;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 70vh;
+    }
+    #home .overlay {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 2rem 3rem;
+      border-radius: 15px;
+    }
+    #home h1 { font-size: 2.5rem; color: #ff3f7a; margin-bottom: 1rem; }
+
+    .journey-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1rem 2rem;
+      background-color: #ff3f7a;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    .journey-btn:hover { background-color: #d81b60; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+    .video-grid video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .photo-collage {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.5rem;
+    }
+    .photo-collage a img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    #venue .timeline-container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff6fa;
+      padding: 1.5rem;
+      border-radius: 15px;
+    }
+    #venue .timeline-item {
+      border-left: 3px solid #ff89bb;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .map-btn, .whatsapp-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1rem 2rem;
+      background-color: #ff3f7a;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer {
+      background: #ff89bb;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    /* Balloons */
+    .balloons {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .balloon {
+      width: 60px; height: 80px;
+      background: radial-gradient(circle at 30% 30%, #fff, #ffccf9);
+      border-radius: 50%;
+      position: absolute;
+      animation: float 10s infinite;
+      opacity: 0.8;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(1); }
+      50% { transform: translateY(50vh) scale(1.1); }
+      100% { transform: translateY(-100vh) scale(1); }
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      animation: fall 4s infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="happy" type="audio/mp3">
+</audio>
+
+<!-- Balloons -->
+<div class="balloons">
+  <div class="balloon" style="left:10%; animation-delay:0s"></div>
+  <div class="balloon" style="left:25%; animation-delay:2s"></div>
+  <div class="balloon" style="left:40%; animation-delay:4s"></div>
+  <div class="balloon" style="left:60%; animation-delay:1s"></div>
+  <div class="balloon" style="left:75%; animation-delay:3s"></div>
+  <div class="balloon" style="left:90%; animation-delay:5s"></div>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#videos">Videos</a>
+  <a href="#photos">Photos</a>
+  <a href="#venue">Venue</a>
+  <a href="#rsvp">RSVP</a>
+</nav>
+
+<!-- Home Section with Countdown -->
+<section id="home">
+  <div class="overlay">
+    <h1>🎉 Welcome to Rutvi’s 1st Birthday! 🎉</h1>
+    <p>Let’s celebrate this magical milestone together!</p>
+    <div id="countdown" style="font-size: 1.5rem; margin: 1rem 0; font-weight: bold; color: #d81b60;"></div>
+    <a href="journey.html" class="journey-btn">👣 See Rutvi’s 1st Year Journey</a>
+  </div>
+</section>
+
+
+<!-- Videos -->
+<section id="videos">
+  <h2 class="section-title">🎥 Adorable Moments</h2>
+  <div class="video-grid">
+    <video autoplay muted loop src="1.mp4"></video>
+    <video autoplay muted loop src="2.mp4"></video>
+    <video autoplay muted loop src="3.mp4"></video>
+    <video autoplay muted loop src="4.mp4"></video>
+
+  </div>
+</section>
+
+<!-- Photos -->
+<section id="photos">
+  <h2 class="section-title">📸 Sweet Memories</h2>
+  <div class="photo-collage">
+    <a href="11.jpg" data-lightbox="rutvi"><img src="11.jpg" alt=""></a>
+    <a href="12.jpg" data-lightbox="rutvi"><img src="12.jpg" alt=""></a>
+    <a href="13.jpg" data-lightbox="rutvi"><img src="13.jpg" alt=""></a>
+    <a href="14.jpg" data-lightbox="rutvi"><img src="14.jpg" alt=""></a>
+    <a href="15.jpg" data-lightbox="rutvi"><img src="15.jpg" alt=""></a>
+    <a href="16.jpg" data-lightbox="rutvi"><img src="16.jpg" alt=""></a>
+  </div>
+</section>
+
+<!-- Venue -->
+<section id="venue">
+  <h2 class="section-title">📍 Venue Details</h2>
+  <div class="timeline-container">
+    <div class="timeline-item"><strong>Date:</strong> 24th April 2025</div>
+    <div class="timeline-item"><strong>Time:</strong> 7:00 PM onwards</div>
+    <div class="timeline-item"><strong>Location:</strong> Fort Palms, Vaishali Nagar</div>
+    <a href="https://maps.app.goo.gl/v5wWS9MM6mFzN5ht8" target="_blank" class="map-btn">📍 View on Google Maps</a>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp">
+  <h2 class="section-title">💌 RSVP</h2>
+  <p>Please let us know if you’ll be joining us!</p>
+  <a href="https://wa.me/919509393095?text=Yes!%20We%E2%80%99re%20coming%20to%20Rutvi%E2%80%99s%20Birthday!" target="_blank" class="whatsapp-btn">Send RSVP on WhatsApp</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>With Love, Rutvi &amp; Family 💖</p>
+</footer>
+
+<!-- Lightbox JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+
+<!-- Confetti Generator (optional fun effect) -->
+<script>
+  function createConfetti() {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = `${Math.random() * 100}vw`;
+    confetti.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 4000);
+  }
+  setInterval(createConfetti, 300);
+</script>
+<script>
+  const countdown = document.getElementById("countdown");
+  const eventDate = new Date("April 24, 2025 19:00:00").getTime();
+
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const diff = eventDate - now;
+
+    if (diff <= 0) {
+      countdown.innerHTML = "🎉 The Celebration Has Begun!";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left!`;
+  };
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>
