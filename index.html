@@ -153,13 +153,18 @@
       0% { transform: translateY(-100px) rotate(0deg); }
       100% { transform: translateY(100vh) rotate(360deg); }
     }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
 
 <!-- Background Music -->
 <audio autoplay loop>
-  <source src="happy" type="audio/mp3">
+  <source src="happy.mp3" type="audio/mp3">
 </audio>
 
 <!-- Balloons -->
@@ -191,17 +196,22 @@
   </div>
 </section>
 
-
 <!-- Videos -->
 <section id="videos">
   <h2 class="section-title">🎥 Adorable Moments</h2>
+
+  <!-- Drive Link Button -->
+  <a href="https://drive.google.com/file/d/1SZ6pTS8xBPHKtgKvqLevsY1HPkgQznUY/view?usp=drivesdk" target="_blank"
+     style="display:inline-block; margin-bottom: 1.5rem; padding: 0.8rem 1.5rem; background-color: red; color: white; border-radius: 10px; text-decoration: none; font-weight: bold; animation: blink 1s infinite;">
+   💖 365 Days of Rutvi
+  </a>
+
   <div class="video-grid">
     <video autoplay muted loop src="1.mp4"></video>
     <video autoplay muted loop src="2.mp4"></video>
     <video autoplay muted loop src="3.mp4"></video>
     <video autoplay muted loop src="4.mp4"></video>
-<video autoplay muted loop src="5.mp4"></video>
-
+    <video autoplay muted loop src="5.mp4"></video>
   </div>
 </section>
 
@@ -247,7 +257,7 @@
 <!-- Lightbox JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
 
-<!-- Confetti Generator (optional fun effect) -->
+<!-- Confetti Animation -->
 <script>
   function createConfetti() {
     const confetti = document.createElement("div");
@@ -259,6 +269,8 @@
   }
   setInterval(createConfetti, 300);
 </script>
+
+<!-- Countdown Script -->
 <script>
   const countdown = document.getElementById("countdown");
   const eventDate = new Date("April 24, 2025 19:00:00").getTime();
@@ -283,5 +295,6 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 </script>
+
 </body>
 </html>
